@@ -2,21 +2,21 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/David-Verde/Hellorails">
+  <a href="https://github.com/David-Verde/Blogapp">
     <img src="/src/logo-david-nuevo-2021.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Ruby on Rails --> [Hellorails]</h3>
+  <h3 align="center">Ruby on Rails --> [BlogApp]</h3>
 
   <p align="center">
     This project is part of the Microverse curriculum in Ruby module!
     <br />
-    <a href="https://github.com/David-Verde/Hellorails"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/David-Verde/Blogapp"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/David-Verde/Hellorails/issues">Report Bug</a>
+    <a href="https://github.com/David-Verde/Blogapp/issues">Report Bug</a>
     ·
-    <a href="https://github.com/David-Verde/Hellorails/issuess">Request Feature</a>
+    <a href="https://github.com/David-Verde/Blogapp/issues">Request Feature</a>
   </p>
 </p>
 
@@ -39,7 +39,7 @@ Project to create the first configuration of ruby on rails
 Soon
 
 ###
- <a href="https://github.com/David-Verde/Hellorails">
+ <a href="https://github.com/David-Verde/Blogapp">
     <img src="/Hellorails/app/assets/logo-david-nuevo-2021.png" alt="Logo">
   </a>
 
@@ -58,11 +58,11 @@ To have this app on your pc, you need to:
 
   - Clone with SSH:
   ```
-git@github.com:David-Verde/Hellorails.git
+git@github.com:David-Verde/Blogapp.git
   ```
   - Clone with HTTPS
   ```
-https://github.com/David-Verde/Hellorails.git
+https://github.com/David-Verde/Blogapp.git
   ```
 
 * In the project directory, you can run:
