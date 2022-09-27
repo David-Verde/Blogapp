@@ -49,6 +49,7 @@ This project was built using these technologies.
 * Visual Studio
 * Rubocop
 * Rails
+* Css
 
 
 <!-- INSTALLATION -->
