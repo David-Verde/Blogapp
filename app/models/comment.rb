@@ -3,15 +3,14 @@ class Comment < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
   after_save :update_comment_counter
- 
-def five_most_recent_comments
-  Comment.last(5)
-end
+
+  def five_most_recent_comments
+    Comment.last(5)
+  end
 
   def update_comment_counter
-    post.increment!(:comments_count)
-end
+    post.increment!(:comments_counter)
+  end
 
-private :update_comment_counter
-
+  private :update_comment_counter
 end
