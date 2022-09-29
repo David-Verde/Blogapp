@@ -11,16 +11,27 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'PostsCounter should be bigger or equal than 0' do
-    expect(subject.posts_counter).to be >= 0
-    subject.posts_counter = -1
-    expect(subject).to_not be_valid
-    subject.posts_counter = 1
+  it 'should not allow name shorter than 3 characters' do
     expect(subject).to be_valid
+    subject.name = 'ab'
+    expect(subject).to_not be_valid
   end
 
-  it 'LastThreePosts length should be between 0 and 3' do
-    expect(subject.last_three_posts).to be_kind_of Array
-    expect(subject.last_three_posts.length).to be_between(0, 3)
+  it 'should not allow name longer than 20 characters' do
+    expect(subject).to be_valid
+    subject.name = 'a' * 21
+    expect(subject).to_not be_valid
+  end
+
+  it 'should not allow post_counter to be negative' do
+    expect(subject).to be_valid
+    subject.post_counter = -1
+    expect(subject).to_not be_valid
+  end
+
+  it 'should not allow post_counter to be a string' do
+    expect(subject).to be_valid
+    subject.post_counter = 'a'
+    expect(subject).to_not be_valid
   end
 end
