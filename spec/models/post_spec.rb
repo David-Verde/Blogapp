@@ -44,5 +44,4 @@ RSpec.describe Post, type: :model do
     subject.save
     expect(subject.author.post_counter).to be 1
   end
-  
 end
