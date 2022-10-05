@@ -43,6 +43,5 @@ RSpec.describe 'Users', type: :request do
       get '/users/1/posts/1'
       expect(response).to render_template(:show)
     end
-
   end
 end
