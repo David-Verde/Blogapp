@@ -20,14 +20,14 @@
         <% @posts.each do |post| %>
           <div class="posts-section">
             <div class="posts-card">
-
+              
             <a href='posts/<%=post.id%>'><h4>Post #: <%= post.id %> - <%= post.title %></a></h4>
         <p class="post-text" maxlength= 150><%= post.text %></p>
         <p class="post-comments-likes">
         Comments: <%= post.comments_counter %> - Likes: <%= post.likes_counter %>
       </p>
-
-
+            
+            
             </div>
             <ul class="five-comments">
               <% post.recent_five_comments.each do |comment| %>
@@ -35,7 +35,7 @@
               <% end %>
             </ul>
           </div>
-
+          
        <% end %>
      <% end %>
     </article>
@@ -43,6 +43,10 @@
     <button>
       Pagination
     </button>
-
+    
+    <%= link_to user_path(@user) do %>
+      <button class="see-all-button">Back to user's short list</button>
+    <% end %>
+    
   </section>
 </main>
