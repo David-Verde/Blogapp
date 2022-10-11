@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'User index page', type: :feature do
   describe 'test' do
     before(:each) do
-      @user = User.create(name: 'Dario', bio: 'This is the bio',
+      @user = User.create(name: 'David', bio: 'This is the bio',
                           photo: 'https://icons.iconarchive.com/icons/iconsmind/outline/512/User-icon.png')
       @id = @user.id
       Post.create(author: @user, title: 'Hello', text: 'This is my first post')

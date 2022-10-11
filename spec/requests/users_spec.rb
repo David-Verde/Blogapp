@@ -40,13 +40,13 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Renders the show view' do
-      user = User.create(name: 'Dario')
+      user = User.create(name: 'David')
       get "/users/#{user.id}/"
       expect(response).to render_template(:show)
     end
 
     it 'Renders template with correct text' do
-      user = User.create(name: 'Dario')
+      user = User.create(name: 'David')
       get "/users/#{user.id}/"
       expect(response.body).to include('User information')
     end

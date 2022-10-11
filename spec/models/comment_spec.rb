@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  user = User.new(name: 'Dario')
+  user = User.new(name: 'David')
   post = Post.new(title: 'example', text: 'example', author: user)
   comment = Comment.new(author: user, post:)
 

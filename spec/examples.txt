@@ -2,8 +2,8 @@ example_id                                        | status  | run_time        |
 ------------------------------------------------- | ------- | --------------- |
 ./spec/helpers/posts_helper_spec.rb[1:1]          | pending | 0.00001 seconds |
 ./spec/helpers/users_helper_spec.rb[1:1]          | pending | 0.00003 seconds |
-./spec/models/comment_spec.rb[1:1]                | passed  | 0.00076 seconds |
-./spec/models/comment_spec.rb[1:2]                | passed  | 0.00061 seconds |
+./spec/models/comment_spec.rb[1:1]                | passed  | 0.05742 seconds |
+./spec/models/comment_spec.rb[1:2]                | passed  | 0.00132 seconds |
 ./spec/models/like_spec.rb[1:1]                   | passed  | 0.01524 seconds |
 ./spec/models/post_spec.rb[1:1]                   | passed  | 0.00082 seconds |
 ./spec/models/post_spec.rb[1:2]                   | passed  | 0.00081 seconds |
