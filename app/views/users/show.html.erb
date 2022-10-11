@@ -26,22 +26,30 @@
             <%= link_to user_post_path(@user.id, post.id) do %>
               <div class="posts-card"> 
                 <h4>Post #: <%= post.id %> - <%= post.title %></h4>
-                <% end %>
+            <% end %>
                 <p class="post-text"><%= post.text %></p>
                 <p class="post-comments-likes">
                   Comments: <%= post.comments_counter %> - Likes: <%= post.likes_counter %>
                 </p>
               </div>
-
-
+            
+            
           </div>
-       <% end %>
-     <% end %>
+        <% end %>
+      <% end %>
     </article>
 
+    <%= link_to new_user_post_path(@user) do %>
+      <button class="see-all-button">Create a new post</button>
+    <% end %>
     <%= link_to user_posts_path(@user) do %>
       <button class="see-all-button">See all posts</button>
     <% end %>
+    
+    <%= link_to users_path do %>
+      <button class="see-all-button">Back to users list</button>
+    <% end %>
+    
 
   </section>
 </main>
