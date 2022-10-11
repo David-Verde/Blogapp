@@ -20,8 +20,5 @@ RSpec.describe Comment, type: :model do
     expect(comment).to_not be_valid
   end
 
-  it 'comment is not valid with text shorter than 5 characters' do
-    comment.text = 'a' * 4
-    expect(comment).to_not be_valid
-  end
+
 end
