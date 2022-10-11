@@ -6,10 +6,10 @@ RSpec.describe 'Post index page', type: :feature do
       @user = User.create(name: 'Dario', bio: 'This is the bio',
                           photo: 'https://icons.iconarchive.com/icons/iconsmind/outline/512/User-icon.png')
       @id = @user.id
-      Post.create(author: @user, title: "Hello 1", text: 'This is my first post')
-      Post.create(author: @user, title: "Hello 2", text: 'This is my second post')
-      Post.create(author: @user, title: "Hello 3", text: 'This is my third post')
-      @post4 = Post.create(author: @user, title: "Hello 4", text: 'This is my fourth post')
+      Post.create(author: @user, title: 'Hello 1', text: 'This is my first post')
+      Post.create(author: @user, title: 'Hello 2', text: 'This is my second post')
+      Post.create(author: @user, title: 'Hello 3', text: 'This is my third post')
+      @post4 = Post.create(author: @user, title: 'Hello 4', text: 'This is my fourth post')
       @comment1 = Comment.create(post: @post4, author: @user, text: 'This is the 1st comment on the 4th post')
       visit user_posts_path(@user)
     end

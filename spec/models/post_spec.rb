@@ -29,7 +29,6 @@ RSpec.describe Post, type: :model do
     expect(subject).to_not be_valid
   end
 
-
   it 'UpdatePostCounter increments post_counter' do
     expect(subject.author.post_counter).to be 0
     subject.save
