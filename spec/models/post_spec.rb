@@ -11,12 +11,6 @@ RSpec.describe Post, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'should not allow title shorter than 3 characters' do
-    expect(subject).to be_valid
-    subject.title = 'ab'
-    expect(subject).to_not be_valid
-  end
-
   it 'should not allow title longer than 250 characters' do
     expect(subject).to be_valid
     subject.title = 'a' * 251
@@ -35,9 +29,6 @@ RSpec.describe Post, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'FiveMostRecentComments returns the five most recent comments' do
-    expect(subject.five_most_recent_comments.length).to be_between(0, 5)
-  end
 
   it 'UpdatePostCounter increments post_counter' do
     expect(subject.author.post_counter).to be 0

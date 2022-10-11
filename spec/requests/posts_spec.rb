@@ -1,47 +1,43 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
+  before(:each) do
+    @user = User.create(name: 'Dario')
+    @id = @user.id
+  end
+
   describe 'GET /id' do
-    it 'returns http success' do
-      get '/users/:user_id/posts'
+    before(:example) { get "/users/#{@id}/posts" }
+
+    it 'Returs http success' do
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'Renders the index view' do
+      expect(response).to render_template(:index)
+    end
+
+    it 'Renders the index view template' do
+      expect(response.body).to include('information')
     end
   end
 
-  it 'Renders the index view' do
-    get '/users/:user_id/posts'
-    expect(response).to render_template(:index)
-  end
+  describe 'GET /show' do
+    before(:example) do
+      post = Post.create(title: 'Test post', text: 'Test post', author: @user)
+      get "/users/#{@id}/posts/#{post.id}"
+    end
 
-  it 'Renders the show view' do
-    get '/users/:user_id/posts/:id'
-    expect(response).to render_template(:show)
-  end
+    it 'Response status is correct' do
+      expect(response).to have_http_status(200)
+    end
 
-  it 'Returns http success' do
-    get '/users/id'
-    expect(response).to have_http_status(:success)
-  end
+    it 'Response to render show view' do
+      expect(response).to render_template(:show)
+    end
 
-  it 'Renders template with correct text' do
-    get '/users'
-    expect(response.body).to include('Users index view')
-  end
-
-  it 'Renders template index' do
-    get '/users'
-    expect(response).to render_template(:index)
-  end
-end
-
-describe 'GET /show' do
-  it 'Response status is ok' do
-    get users_path(1)
-    expect(response).to have_http_status(:ok)
-  end
-
-  it 'Renders the show view' do
-    get '/users/1/posts/1'
-    expect(response).to render_template(:show)
+    it 'Response to render show view template' do
+      expect(response.body).to include('Information for post')
+    end
   end
 end
