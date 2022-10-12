@@ -56,10 +56,10 @@ group :development, :test do
   gem 'bullet'
   gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'devise'
   gem 'ffi'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'devise'
 end
 
 group :development do
