@@ -17,7 +17,7 @@
       <% if @posts.empty? %>
         <h3>Currently there are not posts in the database for this user</h3>
       <% else %>
-        <% @posts.includes([:author]).each do |post| %>
+        <% @posts.each do |post| %>
           <div class="posts-section">
             <div class="posts-card">
               
