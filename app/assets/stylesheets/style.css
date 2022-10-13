@@ -7,7 +7,6 @@ body {
 
 .welcome {
   width: 100%;
-  display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 2px solid rgb(247, 250, 247);
@@ -125,11 +124,11 @@ body {
 }
 
 .navbar {
-  width: 150px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-left: 15px;
+  align-items: center;
+  margin-left: 0%;
 }
 
 .navbar-button-link {
@@ -138,11 +137,16 @@ body {
   list-style: none;
   color: black;
   text-decoration: underline;
+  font-size: 20px;
+  margin-left: 20%;
 }
 
 .page-title {
   border-right: 1px solid white;
-  padding-right: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 15px;
 }
 
 .field {

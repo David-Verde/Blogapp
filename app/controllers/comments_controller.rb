@@ -28,7 +28,20 @@ class CommentsController < ApplicationController
     end
   end
 
-  def strong_params
-    params.require(:comment).permit(:post, :text)
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:post_id])
+    comment = Comment.find(params[:id])
+    comment.destroy
+    respond_to do |format|
+      format.html do
+        flash[:success] = 'Comment was successfully deleted.'
+        redirect_to user_post_url(@user.id, @post.id)
+      end
+    end
   end
+end
+
+def strong_params
+  params.require(:comment).permit(:post, :text)
 end

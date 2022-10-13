@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -27,6 +29,22 @@ class PostsController < ApplicationController
       flash.now[:error] = 'Please fill all fields'
       render :new, status: 422
     end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
+    @post.destroy
+    respond_to do |format|
+      format.html do
+        flash[:success] = 'Post was successfully deleted.'
+        redirect_to user_path(@user.id)
+      end
+    end
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body)
   end
 
   private
