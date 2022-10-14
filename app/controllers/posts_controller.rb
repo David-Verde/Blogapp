@@ -5,6 +5,11 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @posts = @user.posts
     # @comments = Comment.includes(:author)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show
@@ -40,6 +45,9 @@ class PostsController < ApplicationController
         flash[:success] = 'Post was successfully deleted.'
         redirect_to user_path(@user.id)
       end
+
+    rescue_from CanCan::AccessDenied do
+      redirect_to '/sign_in', alert: 'You are not authorized to access this page.'
     end
   end
 
@@ -53,3 +61,5 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :text)
   end
 end
+
+

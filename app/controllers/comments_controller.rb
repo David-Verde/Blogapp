@@ -25,6 +25,9 @@ class CommentsController < ApplicationController
           render :new, locals: { comment: }
         end
       end
+      format.json do
+        render json: @comment
+      end
     end
   end
 
