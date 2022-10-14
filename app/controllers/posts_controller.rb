@@ -1,16 +1,22 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  load_and_authorize_resource
+  # load_and_authorize_resource
+
   def index
-    @user = User.find(params[:user_id])
+    @user = User.includes(:posts).find(params[:user_id])
     @posts = @user.posts
-    # @comments = Comment.includes(:author)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
-    @comments = Comment.where(post_id: params[:id])
+    @comments = Comment.where(posts_id: params[:id])
+    # @comments = Comment.where(post_id: params[:id])
   end
 
   def new
@@ -18,13 +24,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @post = Post.new(strong_params)
-    @post.author = @user
+    @post = current_user.posts.new(strong_params)
 
     if @post.save
       flash[:success] = 'Post saved!'
-      redirect_to user_path(@user.id)
+      redirect_to user_path(current_user.id)
     else
       flash.now[:error] = 'Please fill all fields'
       render :new, status: 422
@@ -32,19 +36,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:user_id])
-    @post = Post.find(params[:id])
-    @post.destroy
-    respond_to do |format|
-      format.html do
-        flash[:success] = 'Post was successfully deleted.'
-        redirect_to user_path(@user.id)
-      end
-    end
+    Post.destroy(params[:id])
+    redirect_to user_path(current_user)
+    flash[:success] = 'The post was successfully destroyed.'
   end
 
-  def post_params
-    params.require(:post).permit(:title, :body)
+  rescue_from CanCan::AccessDenied do
+    redirect_to '/sign_in'
   end
 
   private
