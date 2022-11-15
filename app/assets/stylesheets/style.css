@@ -7,10 +7,9 @@ body {
 
 .welcome {
   width: 100%;
-  display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgb(247, 250, 247);
+  border-bottom: 2px solid rgb(247, 250, 247);
 }
 
 .users-list {
@@ -122,4 +121,50 @@ body {
 
 .submit-post {
   margin-top: 50px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: 0%;
+}
+
+.navbar-button-link {
+  background-color: rgb(151, 157, 158);
+  border: none;
+  list-style: none;
+  color: black;
+  text-decoration: underline;
+  font-size: 20px;
+  margin-left: 20%;
+}
+
+.page-title {
+  border-right: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 15px;
+}
+
+.field {
+  width: 390px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.input-data {
+  width: 390px;
+}
+
+.input-data-bio {
+  width: 390px;
+  height: 70px;
+}
+
+.actions {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

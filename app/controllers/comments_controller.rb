@@ -18,15 +18,28 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html do
         if comment.save
-          flash[:success] = 'Comment was successfully created.'
+          flash[:success] = 'Comment saved successfully'
           redirect_to user_post_url(@user.id, @post.id)
         else
-          flash[:error] = 'Comment was not created.'
+          flash.now[:error] = 'Error: Post could not be saved'
           render :new, locals: { comment: }
         end
       end
+
+      format.json do
+        render json: @comment
+      end
     end
   end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    post = comment.post.id
+    comment.destroy
+    redirect_to user_post_path(current_user, post)
+  end
+
+  private
 
   def strong_params
     params.require(:comment).permit(:post, :text)

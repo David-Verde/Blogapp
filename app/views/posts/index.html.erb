@@ -24,8 +24,23 @@
             <a href='posts/<%=post.id%>'><h4>Post #: <%= post.id %> - <%= post.title %></a></h4>
         <p class="post-text" maxlength= 150><%= post.text %></p>
         <p class="post-comments-likes">
+
+        <% if can? :manage, post %>
+          <%= button_to 'Delete post', user_post_path(@user, post.id), method: :delete, class: 'delete-btn' %>
+        <% end %>
+
+        <a href='posts/<%=post.id%>'>See more</a>
+        </p>
+            </div>
+          </div>
+
+
         Comments: <%= post.comments_counter %> - Likes: <%= post.likes_counter %>
       </p>
+
+    
+
+    
             
             
             </div>

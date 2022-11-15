@@ -12,19 +12,19 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template(:index)
     end
 
-    it 'Rendered view includes correct placeholder text' do
+    it 'Rendered view includes correct "List of users" text' do
       get users_path
-      expect(response.body).to include('Users index view')
+      expect(response.body).to include('List of users')
     end
 
     it 'Returns http success' do
-      get '/users/id'
+      get '/users'
       expect(response).to have_http_status(:success)
     end
 
     it 'Renders template with correct text' do
       get '/users'
-      expect(response.body).to include('Users index view')
+      expect(response.body).to include('Welcome')
     end
 
     it 'Renders template index' do
@@ -40,8 +40,15 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Renders the show view' do
-      get '/users/1/posts/1'
+      user = User.create(name: 'David')
+      get "/users/#{user.id}/"
       expect(response).to render_template(:show)
+    end
+
+    it 'Renders template with correct text' do
+      user = User.create(name: 'David')
+      get "/users/#{user.id}/"
+      expect(response.body).to include('User information')
     end
   end
 end

@@ -4,7 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem 'rack-cors'
 gem 'rails', '~> 7.0.4'
+
+gem 'devise-jwt'
 
 # Rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
@@ -51,9 +54,16 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Figaro
+gem 'figaro'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'bullet'
+  gem 'cancancan'
+  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'devise'
   gem 'ffi'
   gem 'rails-controller-testing'
   gem 'rspec-rails'

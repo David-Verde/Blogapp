@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
   after_save :update_comment_counter
+  after_destroy :decrement_comment_counter
 
   def five_most_recent_comments
     Comment.last(5)
@@ -12,5 +13,7 @@ class Comment < ApplicationRecord
     post.increment!(:comments_counter)
   end
 
-  private :update_comment_counter
+  def decrement_comment_counter
+    post.decrement!(:comments_counter)
+  end
 end
